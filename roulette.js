@@ -20,7 +20,7 @@ const closeModal = document.getElementById("close-modal");
 
 function showResult(result) {
     rotate_count += 1;
-    resultNumber.innerText = result+"회 당첨!"; 
+    resultNumber.innerText = result+"회 당첨!"+rotate_count; 
     modal.classList.remove("hidden");
 }
 
