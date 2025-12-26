@@ -119,7 +119,7 @@ function choose_target_spin() {
     }
 }
 
-spinButton.addEventListener("pointerdown", function() {
+spinButton.addEventListener("click", function() {
     if (rotate_count == appeartime) {
         target_number = 10;
         spin_real_10();
