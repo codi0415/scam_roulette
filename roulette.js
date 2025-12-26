@@ -21,7 +21,7 @@ function showResult(result) {
   modal.classList.remove("hidden");
 }
 
-closeModal.addEventListener("click", () => {
+closeModal.addEventListener("pointerdown", () => {
     roulette.style.transform = `rotate(0deg)`;
     resultNumber.innerText = "돌림판 리셋중...";
     setTimeout(() => {
