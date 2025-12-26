@@ -123,15 +123,13 @@ function choose_target_spin() {
     }
 }
 
-spinButton.addEventListener("click", function() {
-    if (rotate_count == rotate_to_ten){
+spinButton.addEventListener("click", function () {
+    if (rotate_count + 1 === rotate_to_ten) {
         spin_real_10();
-        is_spinning = true;
-        spinButton.innerText = "회전중";
-        spinButton.disabled = true;
+    } else {
+        choose_target_spin();
     }
-    choose_target_spin();
     is_spinning = true;
     spinButton.innerText = "회전중";
     spinButton.disabled = true;
-})
+});
