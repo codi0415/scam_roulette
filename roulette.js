@@ -9,16 +9,19 @@ let rotate_number = 0;
 let specific_rotate = 0;
 let target_number = 0;
 let target_number_rand = 0;
+let rotate_count = 0;
 let is_spinning = false;
 const min_rotate = 15;
 const max_rotate = 30;
+const rotate_to_ten = 63;
 const modal = document.getElementById("result-modal");
 const resultNumber = document.getElementById("result-number");
 const closeModal = document.getElementById("close-modal");
 
 function showResult(result) {
-  resultNumber.innerText = result+"회 당첨!";
-  modal.classList.remove("hidden");
+    rotate_count += 1;
+    resultNumber.innerText = result+"회 당첨!"; 
+    modal.classList.remove("hidden");
 }
 
 closeModal.addEventListener("click", () => {
@@ -110,7 +113,7 @@ function choose_target_spin() {
         target_number = 31;
         spin_31();
     }
-    else if (target_number_rand > 0.965 && target_number_rand <= 0.9999) {
+    else if (target_number_rand > 0.965) {
         target_number = 32;
         spin_32();
     }
@@ -121,6 +124,12 @@ function choose_target_spin() {
 }
 
 spinButton.addEventListener("click", function() {
+    if (rotate_count == rotate_to_ten){
+        spin_real_10();
+        is_spinning = true;
+        spinButton.innerText = "회전중";
+        spinButton.disabled = true;
+    }
     choose_target_spin();
     is_spinning = true;
     spinButton.innerText = "회전중";
